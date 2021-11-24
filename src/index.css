@@ -1,0 +1,12 @@
+html {
+    scroll-behavior: smooth;
+    
+}
+
+:link,
+:visited,
+:hover,
+:active {
+  text-decoration: none;
+  color: inherit;
+}

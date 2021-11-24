@@ -1,6 +1,10 @@
+import { Background, Calendar, Header } from "../Molecules"
+
 const Home = () => {
     return <div>
-        Hello world
+        <Header />
+        <Background />
+        <Calendar />
     </div>
 }
 
