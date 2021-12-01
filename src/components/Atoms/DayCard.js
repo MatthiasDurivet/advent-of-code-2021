@@ -18,11 +18,14 @@ const useStyles = makeStyles(() => ({
     },
     title: {
         fontSize: 18,
+        width: 250,
+        marginLeft: 75,
         textAlign: 'center',
     },
     description: {
         fontSize: 18,
         margin: 20,
+        textAlign: 'center',
     },
     backgroundIcon: {
         position: 'absolute',
@@ -38,7 +41,7 @@ const DayCard = ({ dayNumber }) => {
     return <Link to={`/day-${dayNumber}`}>
         <div className={classes.calendarItem}>
             <p className={classes.title}>
-                #{dayNumber} {dayInfo.title}
+                Day {dayNumber}: {dayInfo.title}
             </p>
             <p className={classes.description}>
                 {dayInfo.description}

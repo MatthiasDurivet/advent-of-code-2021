@@ -1,14 +1,15 @@
 import { makeStyles } from "@mui/styles"
 
-import { useFileUpload } from "../../Atoms/FileUploadZone"
-import { FileUploadZone } from "../../Atoms"
+import { useLocalInputFile } from "../../Atoms/LocalInputFile"
 import { Background, Header } from "../../Molecules"
 import { deepSaffron, white } from "../../../utils/CustomTheme"
+import { CircularProgress } from "@mui/material"
 
 
 const useStyles = makeStyles(() => ({
     dayContainer: {
         marginTop: 50,
+        marginBottom: 200,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -17,33 +18,25 @@ const useStyles = makeStyles(() => ({
     },
     externalLink: {
         color: deepSaffron
-    }
+    },
 }))
 
 const Day = () => {
     const classes = useStyles()
-    const [fileText, uploadedFile, setUploadedFile] = useFileUpload()
+    const dayNumber = parseInt(window.location.pathname.replace('/day-', ''))
+    const [fileText, linkToInputFile] = useLocalInputFile(dayNumber)
 
-    const split = (fileText || '').split('\n')
-    const massValues = split.map(value => parseInt(value))
-    const fuelRequirements = massValues
-        .map(value => value / 3)
-        .map(value => Math.floor(value))
-        .map(value => value - 2)
-    const sum = fuelRequirements.reduce((a, b) => a + b, 0)
+    console.log('fileText: ', fileText)
 
+    if (!fileText) return <CircularProgress color="primary" />
 
     return <div>
         <Header />
         <Background />
         <div className={classes.dayContainer}>
-            <FileUploadZone uploadedFile={uploadedFile} setUploadedFile={setUploadedFile} />
-            <a href='https://adventofcode.com/2019/day/1' className={classes.externalLink}>https://adventofcode.com/2019/day/1</a>
-            <p>{fileText}</p>
-            <p>{split}</p>
-            <p>{massValues}</p>
-            <p>{fuelRequirements}</p>
-            <p>{sum}</p>
+            <a className={classes.externalLink} href={linkToInputFile} target='_blank' rel='noreferrer'>{linkToInputFile}</a>
+
+
         </div>
     </div >
 }

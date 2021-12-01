@@ -51,13 +51,6 @@ const useStyles = makeStyles(() => ({
 
 const Calendar = () => {
     const classes = useStyles()
-    React.useEffect(() => {
-        window.scrollTo(0, document.body.scrollHeight)
-        const timeoutPointer = setTimeout(() => {
-            window.scrollTo(0, 0)
-        }, 1000)
-        return () => clearTimeout(timeoutPointer)
-    }, [])
     return <div className={classes.calendarContainer}>
         {getAllDayNumbers().map(dayNumber => <DayCard key={dayNumber} dayNumber={dayNumber} />)}
     </div>
