@@ -10,3 +10,8 @@ html {
   text-decoration: none;
   color: inherit;
 }
+
+* {
+  box-sizing: border-box !important;
+  color: white !important;
+}

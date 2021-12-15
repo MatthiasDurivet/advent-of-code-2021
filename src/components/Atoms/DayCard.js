@@ -32,6 +32,12 @@ const useStyles = makeStyles(() => ({
         top: 10,
         right: 10,
         opacity: 0.5,
+    },
+    emojiPreview: {
+        position: 'absolute',
+        bottom: 10,
+        left: 10,
+        fontSize: 30,
     }
 }))
 
@@ -47,6 +53,7 @@ const DayCard = ({ dayNumber }) => {
                 {dayInfo.description}
             </p>
             <OpenInNewIcon color="primary" className={classes.backgroundIcon} fontSize='large' />
+            <div className={classes.emojiPreview}>{dayInfo.emoji}</div>
         </div >
     </Link>
 }

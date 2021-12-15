@@ -16,34 +16,34 @@ const useStyles = makeStyles(() => ({
         columnGap: 100,
         rowGap: 100,
         scrollBehavior: 'smooth',
-        '& :nth-child(4)': {
+        '& a:nth-child(4)': {
             marginLeft: 200,
         },
-        '& :nth-child(5)': {
+        '& a:nth-child(5)': {
             marginRight: 200,
         },
-        '& :nth-child(9)': {
+        '& a:nth-child(9)': {
             marginLeft: 200,
         },
-        '& :nth-child(10)': {
+        '& a:nth-child(10)': {
             marginRight: 200,
         },
-        '& :nth-child(14)': {
+        '& a:nth-child(14)': {
             marginLeft: 200,
         },
-        '& :nth-child(15)': {
+        '& a:nth-child(15)': {
             marginRight: 200,
         },
-        '& :nth-child(19)': {
+        '& a:nth-child(19)': {
             marginLeft: 200,
         },
-        '& :nth-child(20)': {
+        '& a:nth-child(20)': {
             marginRight: 200,
         },
-        '& :nth-child(24)': {
+        '& a:nth-child(24)': {
             marginLeft: 200,
         },
-        '& :nth-child(25)': {
+        '& a:nth-child(25)': {
             marginRight: 200,
         },
     },

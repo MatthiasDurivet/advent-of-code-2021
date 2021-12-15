@@ -5,6 +5,7 @@ import { Background, Header } from "../../Molecules"
 import { deepSaffron, white } from "../../../utils/CustomTheme"
 import { CircularProgress } from "@mui/material"
 
+import { sumNumbers } from '../../../utils/helperFunctions'
 
 const useStyles = makeStyles(() => ({
     dayContainer: {
@@ -26,9 +27,41 @@ const Day = () => {
     const dayNumber = parseInt(window.location.pathname.replace('/day-', ''))
     const [fileText, linkToInputFile] = useLocalInputFile(dayNumber)
 
+
     if (!fileText) return <CircularProgress color="primary" />
 
-    console.log('fileText: ', fileText)
+    let aim = 0
+    const depth = fileText.split('\n')
+        .map(line => line.split(' '))
+        .map(arr => {
+            const amount = parseInt(arr[1])
+            const direction = arr[0]
+            if (direction === 'up') {
+                aim -= amount
+                return 0
+            }
+            if (direction === 'down') {
+                aim += amount
+                return 0
+            }
+
+            return aim * amount
+        })
+        .reduce(sumNumbers, 0)
+
+    const horizontal = fileText.split('\n')
+        .map(line => line.split(' '))
+        .map(arr => {
+            const amount = parseInt(arr[1])
+            const direction = arr[0]
+            if (direction === 'forward') return amount
+            return 0
+        })
+        .reduce(sumNumbers, 0)
+
+    console.log('depth: ', depth)
+    console.log('horizontal: ', horizontal)
+    console.log('depth*horizontal: ', depth * horizontal)
 
     return <div>
         <Header />
