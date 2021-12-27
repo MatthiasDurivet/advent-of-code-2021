@@ -3,6 +3,7 @@ import { Combination, Permutation, PowerSet } from 'js-combinatorics'
 const sortNumbersAscending = (a, b) => a - b
 const sortNumbersDescending = (a, b) => b - a
 const sumNumbers = (a, b) => a + b
+const multiplyNumbers = (a, b) => a * b
 const logAndReturn = value => {
     console.log('value: ', value)
     return value
@@ -28,6 +29,7 @@ const groupBy = (total, value) => {
 }
 
 export {
+    multiplyNumbers,
     sortNumbersAscending,
     sortNumbersDescending,
     sumNumbers,
